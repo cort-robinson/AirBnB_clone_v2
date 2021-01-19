@@ -18,6 +18,7 @@ def hbnb():
 def ctext(text):
     return 'C ' + text.replace('_', ' ')
 
+
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def pytext(text='is cool'):
