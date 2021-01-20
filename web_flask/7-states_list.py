@@ -3,13 +3,15 @@
 from flask import Flask, render_template
 from models import storage
 from models.state import State
+from operator import attrgetter
 app = Flask(__name__)
 
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
     states = storage.all(State).values()
-    return render_template('7-states_list.html', states=states)
+    return render_template(
+        '7-states_list.html', states=sorted(states, key=attrgetter('name')))
 
 
 @app.teardown_appcontext
