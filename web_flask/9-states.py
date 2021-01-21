@@ -19,7 +19,7 @@ def states_by_id(id=None):
     for state in states:
         if state.id == id:
             return render_template(
-                '9-states.html', state=state, id=id)
+                '9-states.html', states=state, id=id)
     return render_template('9-states.html', states=None, id=id)
 
 
