@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
+    """Gets a list of states"""
     states = storage.all(State)
     values = states.values()
     result = sorted(values, key=attrgetter('name'))
@@ -18,6 +19,7 @@ def states_list():
 
 @app.teardown_appcontext
 def teardown(self):
+    """Quits sqlalchemy session"""
     storage.close()
 
 
